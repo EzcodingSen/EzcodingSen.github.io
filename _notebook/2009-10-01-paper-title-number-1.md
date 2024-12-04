@@ -1,5 +1,5 @@
 ---
-title: "Paper Title Number 1"
+title: "Notebook"
 collection: notebook
 category: notebook
 permalink: /notebook/2009-10-01-paper-title-number-1

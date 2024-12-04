@@ -1,6 +1,37 @@
 ---
 layout: archive
 permalink: /tags/
+title: "Posts by Selected Tag"
+author_profile: true
+---
+
+{% include base_path %}
+{% assign selected_tag = page.tag | default: nil %}
+
+{% if selected_tag %}
+  <h1>Posts tagged with "{{ selected_tag }}"</h1>
+
+  {% include group-by-array collection=site.notebook field="tags" %}
+
+  {% for tag in group_names %}
+    {% if tag == selected_tag %}
+      {% assign posts = group_items[forloop.index0] %}
+      <h2 id="{{ tag | slugify }}" class="archive__subtitle">{{ tag }}</h2>
+      {% for post in posts %}
+        {% include archive-single.html %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+
+{% else %}
+  <p>Please provide a tag parameter in the URL (e.g., <code>?tag=example</code>).</p>
+{% endif %}
+
+
+
+<!-- ---
+layout: archive
+permalink: /tags/
 title: "Posts by Tags"
 author_profile: true
 ---
@@ -14,4 +45,4 @@ author_profile: true
   {% for post in posts %}
     {% include archive-single.html %}
   {% endfor %}
-{% endfor %}
+{% endfor %} -->

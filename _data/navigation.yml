@@ -6,7 +6,7 @@
 
 main:
   - title: "Notebook"
-    url: /year-archive/
+    url: /notebook/
 
   # - title: "Talks"
   #   url: /talks/    
